@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generador de Párrafos</title>
+  </head>
+  <body>
+    <h1>Generador de Párrafos</h1>
+    <form>
+      <label for="airline">Aerolínea:</label>
+      <input type="text" id="airline" /><br /><br />
+
+      <label for="amount">Monto:</label>
+      <input type="text" id="amount" /><br /><br />
+
+      <label for="refund-timing">Tiempo de reembolso:</label>
+      <input type="text" id="refund-timing" /><br /><br />
+
+      <label for="validity">Validez:</label>
+      <input type="text" id="validity" /><br /><br />
+
+      <label for="travel-date">Fecha de viaje:</label>
+      <input type="text" id="travel-date" /><br /><br />
+
+      <button type="button" onclick="generarParrafo()">Generar Párrafo</button>
+      <button type="button" onclick="copiarAlPortapapeles()">
+        Copiar Párrafo
+      </button>
+    </form>
+
+    <br />
+
+    <p id="parrafo-generado"></p>
+
+    <script>
+      function generarParrafo() {
+        const airline = document.getElementById("airline").value;
+        const amount = document.getElementById("amount").value;
+        const refundTiming = document.getElementById("refund-timing").value;
+        const validity = document.getElementById("validity").value;
+        const travelDate = document.getElementById("travel-date").value;
+
+        const parrafo1 = `Refundable (with pen) According to ${airline}, your ticket is refundable minus a fee of ${amount} per passenger, you'll get a refund of ${amount} to your original payment method within ${refundTiming}. Shall we proceed?`;
+
+        const parrafo2 = `FTC without penalty Good news! Your reservation allows us to cancel with an airline credit. You can use this credit ${validity} a future flight with ${airline} for same passengers and country of origin by ${travelDate}. Keep in mind there’s no change fee and rice difference will apply. Should I proceed?`;
+
+        document.getElementById(
+          "parrafo-generado"
+        ).innerHTML = `${parrafo1}<br><br>${parrafo2}`;
+      }
+
+      function copiarAlPortapapeles() {
+        const parrafo = document.getElementById("parrafo-generado");
+        const seleccion = window.getSelection();
+        const rango = document.createRange();
+        rango.selectNodeContents(parrafo);
+        seleccion.removeAllRanges();
+        seleccion.addRange(rango);
+        document.execCommand("copy");
+        alert("El párrafo ha sido copiado al portapapeles.");
+      }
+    </script>
+  </body>
+</html>

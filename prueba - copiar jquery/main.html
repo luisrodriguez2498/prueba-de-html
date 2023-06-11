@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Generador de frases</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generador de frases</h1>
+      <label for="reserva">Ingrese su reserva:</label>
+      <input type="text" id="reserva" placeholder="Ej: Hotel XYZ" />
+      <label for="fecha">Ingrese la fecha:</label>
+      <input type="date" id="fecha" />
+      <button id="generar">Generar párrafo</button>
+      <button id="copiar">Copiar al portapapeles</button>
+      <p id="frase-generada"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

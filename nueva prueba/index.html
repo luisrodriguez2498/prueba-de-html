@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reemplazar texto con valores de campos de entrada</title>
+  <script>
+    function reemplazarTexto() {
+      var nuevoTexto1 = document.getElementById("campoTexto1").value;
+      var nuevoTexto2 = document.getElementById("campoTexto2").value;
+
+      var spanElement1 = document.getElementById("miSpan1");
+      var spanElement2 = document.getElementById("miSpan2");
+
+      spanElement1.textContent = nuevoTexto1;
+      spanElement2.textContent = nuevoTexto2;
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Reemplazar texto con valores de campos de entrada</h2>
+
+  <p>Is this for your reservation to <span id="miSpan1"> &lt; &gt; </span> on <span id="miSpan2">&lt; &gt;</span>,
+    correct?</p>
+
+  <label for="campoTexto1">Hotel name:</label>
+  <input type="text" id="campoTexto1">
+  <br>
+  <label for="campoTexto2">Date:</label>
+  <input type="date" id="campoTexto2">
+
+  <button onclick="reemplazarTexto()">Reemplazar texto</button>
+</body>
+
+</html>
